@@ -1,0 +1,45 @@
+html{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+h1{
+    text-align: center;
+}
+.productos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productos>*{
+    flex: 1 1 300px;
+    margin: 1rem;
+}
+.producto{
+    background-color: teal;
+    color: bisque;
+    font-size: 125%;
+    text-align: center;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+
+.producto:hover{
+    opacity: .9;
+    transform: scale(.9);
+}
+.producto img{
+    max-width: 100%;
+    height: auto;
+}
+
+.producto figcaption{
+    padding: 1rem;
+}
