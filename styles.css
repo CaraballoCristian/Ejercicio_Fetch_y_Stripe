@@ -10,8 +10,10 @@ html{
     box-sizing: inherit;
 }
 
-h1{
+h1,
+p{
     text-align: center;
+    font-weight: bold;
 }
 .productos{
     display: flex;

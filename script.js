@@ -1,4 +1,3 @@
-import stripeKeys from "./stripe-keys.js";
 import STRIPE_KEYS from "./stripe-keys.js";
 
 const d = document,
@@ -19,11 +18,11 @@ Promise.all([
 ])
 .then((responses) => Promise.all(responses.map((res) => res.json())))
 .then((json) => {
-    productos = json[0].data;                   //obtenemos imagen y nombre del producto
-    precios = json[1].data;                     //obtenemos 
+    productos = json[0].data;                   
+    precios = json[1].data;                      
     
     precios.forEach(el => {
-        //filtro para que el precio se coincida con el producto correspondiente
+        //filtro para que el precio coincida con el producto correspondiente
         let productData = productos.filter(product => product.id === el.product);
 
         //stripe requiere que se le envie el id del precio del producto a vender, el cual guardamos en un data-attribute
@@ -31,12 +30,12 @@ Promise.all([
         $template.querySelector("img").src = productData[0].images[0];
         $template.querySelector("img").alt = productData[0].name;
         $template.querySelector("figcaption").innerHTML = `
-        ${productData[0].name}:
-        <br>
-        ${productData[0].description}
-        <br>
-        $${parseFloat(el.unit_amount/100)} ${(el.currency).toUpperCase()}
-        
+            ${productData[0].name}:
+            <br>
+            ${productData[0].description}
+            <br>
+            $${parseFloat(el.unit_amount/100)} ${(el.currency).toUpperCase()}
+            
         `
         let $clone = d.importNode($template, true);
 
